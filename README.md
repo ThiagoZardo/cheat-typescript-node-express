@@ -43,3 +43,30 @@ npm install http-status-codes
  },
 ```
 ================================================================================
+
+## 5 Criar o arquivo index.ts:
+```
+import express, { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import 'express-async-errors';
+
+const app = express();
+
+app.use(express.json());
+
+const PORT = 8000;
+
+app.get('/', (req: Request, res: Response) => {
+    res.status(StatusCodes.OK).send('Express + TypeScript')
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
+```
+================================================================================
+## 6 Instalar bibliotecas de erros se necessário:
+```
+npm install express-async-errors
+npm install restify-errors @types/restify-errors
+```
